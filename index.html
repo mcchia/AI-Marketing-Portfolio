@@ -3,523 +3,823 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Marketing Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Ngo Hoang Khanh Linh | AI/Tech Marketing Specialist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1A2B4A;
+      --navy-deep: #0B1220;
+      --navy-soft: #24385E;
+      --blue: #2563EB;
+      --blue-soft: rgba(37, 99, 235, 0.18);
+      --white: #F8FAFC;
+      --muted: #B8C4D9;
+      --line: rgba(248, 250, 252, 0.12);
+      --card: rgba(248, 250, 252, 0.055);
+      --card-hover: rgba(248, 250, 252, 0.09);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 16% 8%, rgba(37, 99, 235, 0.28), transparent 34%),
+        radial-gradient(circle at 84% 16%, rgba(37, 99, 235, 0.16), transparent 28%),
+        linear-gradient(135deg, var(--navy-deep), var(--navy) 48%, #111B31);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(248, 250, 252, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(248, 250, 252, 0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(11, 18, 32, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 22px;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    section {
+      padding: 96px 0;
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      padding: 116px 0 96px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: var(--blue);
+      box-shadow: 0 0 18px var(--blue);
+    }
+
+    h1, h2, h3 {
+      font-family: "Syne", sans-serif;
+      letter-spacing: -0.055em;
+      line-height: 0.96;
+    }
+
+    h1 {
+      font-size: clamp(54px, 8vw, 104px);
+      max-width: 760px;
+    }
+
+    .hero-title-accent {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(248, 250, 252, 0.62);
+    }
+
+    .title-line {
+      margin-top: 24px;
+      font-size: clamp(20px, 2vw, 28px);
+      color: #E5EDFF;
+      font-weight: 700;
+    }
+
+    .tagline {
+      margin-top: 18px;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.65;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .tag {
+      border: 1px solid rgba(37, 99, 235, 0.45);
+      background: var(--blue-soft);
+      color: #DCE8FF;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 38px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-weight: 800;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      border-color: var(--blue);
+      box-shadow: 0 18px 50px rgba(37, 99, 235, 0.32);
+    }
+
+    .btn-secondary {
+      background: rgba(248, 250, 252, 0.06);
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background: linear-gradient(180deg, rgba(248, 250, 252, 0.09), rgba(248, 250, 252, 0.035));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -58px;
+      top: -62px;
+      border-radius: 50%;
+      background: rgba(37, 99, 235, 0.34);
+      filter: blur(40px);
+    }
+
+    .system-panel {
+      position: relative;
+      display: grid;
+      gap: 16px;
+    }
+
+    .panel-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #CDE0FF;
+    }
+
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 18px var(--blue);
+    }
+
+    .metric-large {
+      padding: 28px;
+      border-radius: 26px;
+      background: rgba(11, 18, 32, 0.58);
+      border: 1px solid var(--line);
+    }
+
+    .metric-large strong {
+      display: block;
+      font-family: "Syne", sans-serif;
+      font-size: 58px;
+      letter-spacing: -0.06em;
+      line-height: 1;
+    }
+
+    .metric-large span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .mini-bars {
+      display: grid;
+      gap: 10px;
+    }
+
+    .bar {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .bar-track {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(248, 250, 252, 0.1);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), #78A6FF);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.8fr 1fr;
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 44px;
+    }
+
+    .section-label {
+      color: var(--blue);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: clamp(38px, 5vw, 66px);
+    }
+
+    .section-copy {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 17px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+    }
+
+    .bio-card, .stat-card, .case-card, .skill-card {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 28px;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .bio-card {
+      padding: 34px;
+      min-height: 100%;
+    }
+
+    .bio-card p {
+      color: #DCE7FA;
+      font-size: 22px;
+      line-height: 1.7;
+    }
+
+    .stats {
+      display: grid;
+      gap: 16px;
+    }
+
+    .stat-card {
+      padding: 24px;
+    }
+
+    .stat-card strong {
+      font-family: "Syne", sans-serif;
+      display: block;
+      font-size: 38px;
+      letter-spacing: -0.05em;
+      color: var(--white);
+    }
+
+    .stat-card span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .case-card {
+      position: relative;
+      padding: 26px;
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .case-card:hover, .skill-card:hover, .stat-card:hover {
+      transform: translateY(-5px);
+      background: var(--card-hover);
+      border-color: rgba(37, 99, 235, 0.38);
+    }
+
+    .case-card::after {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      right: -80px;
+      bottom: -80px;
+      background: rgba(37, 99, 235, 0.22);
+      filter: blur(18px);
+      border-radius: 50%;
+    }
+
+    .case-number {
+      color: var(--blue);
+      font-weight: 900;
+      margin-bottom: 22px;
+    }
+
+    .case-card h3 {
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .case-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .case-tags span {
+      color: #DDE8FF;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(37, 99, 235, 0.28);
+    }
+
+    .result {
+      margin-top: auto;
+      color: var(--muted);
+      line-height: 1.6;
+      position: relative;
+      z-index: 2;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      padding: 24px;
+      min-height: 190px;
+    }
+
+    .skill-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 14px;
+      background: var(--blue-soft);
+      color: #DCE8FF;
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      font-weight: 900;
+    }
+
+    .skill-card h3 {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 12px;
+      bottom: 12px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--blue), rgba(248, 250, 252, 0.12));
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 28px;
+      padding-left: 52px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 24px rgba(37, 99, 235, 0.95);
+    }
+
+    .timeline-date {
+      color: #DCE8FF;
+      font-weight: 800;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .timeline-content {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--card);
+    }
+
+    .timeline-content h3 {
+      font-size: 24px;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+    }
+
+    .contact-strip {
+      margin-top: 70px;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .contact-strip strong {
+      color: var(--white);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid, .about-grid, .section-head {
+        grid-template-columns: 1fr;
+      }
+
+      .case-grid, .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav-inner {
+        height: auto;
+        padding: 18px 0;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        padding-top: 86px;
+      }
+
+      .case-grid, .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .bio-card p {
+        font-size: 18px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Navigation -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo">MC</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="sun">&#9728;</span>
-        <span class="moon">&#9790;</span>
-      </button>
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section id="hero">
-    <div class="hero-bg">
-      <div class="grid-overlay"></div>
-      <div class="glow glow-1"></div>
-      <div class="glow glow-2"></div>
-    </div>
-    <div class="hero-content">
-      <p class="hero-tag">AI-Powered Marketing Strategist</p>
-      <h1 class="hero-name">Maria Chia</h1>
-      <p class="hero-subtitle">
-        Blending <span class="accent">machine learning</span> with creative strategy
-        to build campaigns that convert, retain, and scale.
-      </p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View Work</a>
-        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Years Experience</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><span class="stat-num">40+</span><span class="stat-label">Campaigns Launched</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><span class="stat-num">3x</span><span class="stat-label">Avg. ROAS Improvement</span></div>
-      </div>
-    </div>
-    <div class="scroll-hint">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">01 / About</span>
-        <h2>Who I Am</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>
-            I'm a marketing strategist with a deep focus on AI-driven growth. I started
-            as a traditional digital marketer and retrained to harness large language
-            models, predictive analytics, and automation — turning gut-feel campaigns into
-            data-backed, self-optimising systems.
-          </p>
-          <p>
-            My work sits at the intersection of <strong>creative storytelling</strong> and
-            <strong>quantitative analysis</strong>. I design end-to-end funnels, build
-            audience segmentation models, and orchestrate multi-channel campaigns that
-            grow revenue without proportionally growing spend.
-          </p>
-          <p>
-            When I'm not building campaigns I write about AI ethics in advertising and
-            mentor early-career marketers transitioning into the AI space.
-          </p>
-          <div class="about-chips">
-            <span class="chip">Growth Marketing</span>
-            <span class="chip">AI Strategy</span>
-            <span class="chip">Content Ops</span>
-            <span class="chip">Paid Media</span>
-            <span class="chip">Analytics</span>
-            <span class="chip">Automation</span>
-          </div>
-        </div>
-        <div class="about-card">
-          <div class="about-avatar">MC</div>
-          <div class="about-details">
-            <div class="detail-row">
-              <span class="detail-label">Location</span>
-              <span class="detail-value">San Francisco, CA</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Availability</span>
-              <span class="detail-value available">Open to opportunities</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Email</span>
-              <span class="detail-value">maria@example.com</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">LinkedIn</span>
-              <span class="detail-value">linkedin.com/in/mariachia</span>
-            </div>
-          </div>
-          <a href="#" class="btn btn-primary" style="width:100%;text-align:center;margin-top:1.5rem;">
-            Download Resume
-          </a>
+  <div class="page">
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="#hero" class="logo">Linh<span>.</span>AI</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
         </div>
       </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- Skills -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">02 / Skills</span>
-        <h2>What I Bring</h2>
-      </div>
-      <div class="skills-grid">
-
-        <div class="skill-card">
-          <div class="skill-icon">&#129302;</div>
-          <h3>AI &amp; Automation</h3>
-          <p>Building LLM-powered content pipelines, audience scoring models, and chatbot funnels using GPT-4, Claude, and open-source tools.</p>
-          <div class="skill-tags">
-            <span>Prompt Engineering</span>
-            <span>LangChain</span>
-            <span>Make.com</span>
-            <span>Zapier</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon">&#128200;</div>
-          <h3>Growth &amp; Paid Media</h3>
-          <p>Full-funnel strategy across Google, Meta, LinkedIn, and TikTok. Skilled in bid automation, creative testing, and attribution modelling.</p>
-          <div class="skill-tags">
-            <span>Google Ads</span>
-            <span>Meta Ads</span>
-            <span>LinkedIn Ads</span>
-            <span>TikTok Ads</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon">&#128202;</div>
-          <h3>Analytics &amp; Data</h3>
-          <p>Turning raw data into insight with GA4, Looker Studio, BigQuery, and Python. I build dashboards that tell a story, not just show numbers.</p>
-          <div class="skill-tags">
-            <span>GA4</span>
-            <span>BigQuery</span>
-            <span>Python</span>
-            <span>Looker Studio</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon">&#9997;&#65039;</div>
-          <h3>Content Strategy</h3>
-          <p>Editorial planning, SEO, AI-assisted content at scale, and brand voice systems that keep quality consistent across channels.</p>
-          <div class="skill-tags">
-            <span>SEO</span>
-            <span>Copywriting</span>
-            <span>CMS</span>
-            <span>Brand Strategy</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon">&#128231;</div>
-          <h3>CRM &amp; Lifecycle</h3>
-          <p>Email, SMS, and in-app messaging programs with advanced segmentation, A/B testing, and churn prediction models.</p>
-          <div class="skill-tags">
-            <span>HubSpot</span>
-            <span>Klaviyo</span>
-            <span>Iterable</span>
-            <span>Segment</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon">&#128101;</div>
-          <h3>Leadership</h3>
-          <p>Led cross-functional teams of 3–10, managed agency relationships, and reported directly to C-suite on marketing P&amp;L.</p>
-          <div class="skill-tags">
-            <span>Team Management</span>
-            <span>Roadmapping</span>
-            <span>OKRs</span>
-            <span>Budgeting</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">03 / Experience</span>
-        <h2>Where I've Worked</h2>
-      </div>
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-meta">
-              <span class="timeline-date">2023 — Present</span>
-              <span class="timeline-type">Full-time</span>
+    <main>
+      <section class="hero" id="hero">
+        <div class="container hero-grid">
+          <div class="reveal">
+            <div class="eyebrow">Hanoi, Vietnam · AI/Tech Marketing Specialist</div>
+            <h1>Ngo Hoang<br><span class="hero-title-accent">Khanh Linh</span></h1>
+            <div class="title-line">AI/Tech Marketing Specialist</div>
+            <p class="tagline">"I build marketing systems that run on AI"</p>
+            <div class="tags">
+              <span class="tag">GEO/SEO</span>
+              <span class="tag">AI-Powered Growth</span>
+              <span class="tag">Brand Strategy</span>
             </div>
-            <h3>Head of AI Marketing</h3>
-            <p class="timeline-company">NovaSpark Technologies &middot; San Francisco, CA</p>
-            <ul>
-              <li>Built an AI content factory reducing content production time by 70% while increasing organic traffic 120%.</li>
-              <li>Designed predictive lead-scoring model improving SQL conversion rate from 12% to 31%.</li>
-              <li>Managed $2.4M annual ad budget across paid channels with average ROAS of 4.2x.</li>
-              <li>Grew marketing team from 2 to 8 and established OKR framework adopted company-wide.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-meta">
-              <span class="timeline-date">2021 — 2023</span>
-              <span class="timeline-type">Full-time</span>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#work">View My Work</a>
+              <a class="btn btn-secondary" href="./Ngo-Hoang-Khanh-Linh-CV.pdf" target="_blank" rel="noopener">Download CV</a>
             </div>
-            <h3>Senior Growth Marketer</h3>
-            <p class="timeline-company">Clearfield SaaS &middot; Remote</p>
-            <ul>
-              <li>Launched 15 product-led growth experiments, contributing to 55% ARR growth in 18 months.</li>
-              <li>Implemented Segment + Iterable lifecycle stack, lifting email-driven revenue by 38%.</li>
-              <li>Co-authored AI-assisted SEO strategy that ranked 200+ articles page 1 within 6 months.</li>
-            </ul>
           </div>
-        </div>
 
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-meta">
-              <span class="timeline-date">2019 — 2021</span>
-              <span class="timeline-type">Full-time</span>
-            </div>
-            <h3>Digital Marketing Manager</h3>
-            <p class="timeline-company">BrightLeaf Agency &middot; New York, NY</p>
-            <ul>
-              <li>Managed paid social and search campaigns for 12 B2B &amp; e-commerce clients.</li>
-              <li>Introduced automated reporting dashboards saving the team 8 hours per week.</li>
-              <li>Achieved Google Ads Certified Partner status for the agency within first year.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-meta">
-              <span class="timeline-date">2018 — 2019</span>
-              <span class="timeline-type">Contract</span>
-            </div>
-            <h3>Marketing Analyst</h3>
-            <p class="timeline-company">Freelance &middot; Various</p>
-            <ul>
-              <li>Built GA &amp; Google Ads dashboards for 6 startups as independent consultant.</li>
-              <li>Completed Google Analytics Individual Qualification and HubSpot certifications.</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">04 / Projects</span>
-        <h2>Selected Work</h2>
-      </div>
-      <div class="projects-grid">
-
-        <div class="project-card featured">
-          <div class="project-label">Featured</div>
-          <div class="project-body">
-            <h3>AI Content Engine</h3>
-            <p>
-              End-to-end pipeline that takes a content brief, generates SEO-optimised drafts
-              using Claude, runs them through a brand-voice scoring model, and publishes to
-              CMS — cutting editorial cost by 65%.
-            </p>
-            <div class="project-stack">
-              <span>Claude API</span>
-              <span>Python</span>
-              <span>Webflow CMS</span>
-              <span>Make.com</span>
-            </div>
-            <div class="project-results">
-              <div class="result-item">
-                <span class="result-num">120%</span>
-                <span class="result-label">Organic traffic lift</span>
+          <div class="hero-card reveal">
+            <div class="system-panel">
+              <div class="panel-top">
+                <span>Marketing System Console</span>
+                <span class="status">Live</span>
               </div>
-              <div class="result-item">
-                <span class="result-num">65%</span>
-                <span class="result-label">Cost reduction</span>
+              <div class="metric-large">
+                <strong>95%</strong>
+                <span>Lower production cost by replacing slow traditional workflows with AI-powered marketing systems.</span>
+              </div>
+              <div class="mini-bars">
+                <div class="bar"><span>GEO/SEO</span><div class="bar-track"><div class="bar-fill" style="width: 96%"></div></div></div>
+                <div class="bar"><span>Automation</span><div class="bar-track"><div class="bar-fill" style="width: 90%"></div></div></div>
+                <div class="bar"><span>Brand Growth</span><div class="bar-track"><div class="bar-fill" style="width: 86%"></div></div></div>
               </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="project-card">
-          <div class="project-body">
-            <h3>Predictive Lead Scorer</h3>
-            <p>
-              ML model trained on 3 years of CRM data to score inbound leads in real time,
-              routing high-intent prospects to sales instantly.
-            </p>
-            <div class="project-stack">
-              <span>Python</span>
-              <span>scikit-learn</span>
-              <span>HubSpot API</span>
-              <span>BigQuery</span>
+      <section id="about">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="section-label">About</div>
+              <h2>Turning technical complexity into market momentum.</h2>
             </div>
-            <div class="project-results">
-              <div class="result-item">
-                <span class="result-num">+19pt</span>
-                <span class="result-label">SQL conversion rate</span>
-              </div>
-            </div>
+            <p class="section-copy">Data-driven marketer specializing in AI-powered growth for Vietnam's tech ecosystem. I bridge the gap between technical complexity and consumer storytelling — using AI tools to deliver results at 95% lower cost and 80% faster than traditional methods.</p>
           </div>
-        </div>
 
-        <div class="project-card">
-          <div class="project-body">
-            <h3>Lifecycle Revenue Programme</h3>
-            <p>
-              Multi-channel lifecycle system using behavioural triggers across email,
-              SMS, and in-app, with churn-risk intervention flows.
-            </p>
-            <div class="project-stack">
-              <span>Iterable</span>
-              <span>Segment</span>
-              <span>Klaviyo</span>
-              <span>SQL</span>
+          <div class="about-grid">
+            <div class="bio-card reveal">
+              <p>I design marketing systems where strategy, content, automation, data, and creative production work together — helping technical products become clearer, faster to scale, and easier for customers to understand.</p>
             </div>
-            <div class="project-results">
-              <div class="result-item">
-                <span class="result-num">38%</span>
-                <span class="result-label">Email revenue lift</span>
-              </div>
+            <div class="stats">
+              <div class="stat-card reveal"><strong>250+</strong><span>Leads Generated</span></div>
+              <div class="stat-card reveal"><strong>40%</strong><span>Organic Growth Rate</span></div>
+              <div class="stat-card reveal"><strong>95%</strong><span>Cost Reduction via AI</span></div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="project-card">
-          <div class="project-body">
-            <h3>Paid Media Automation Suite</h3>
-            <p>
-              Custom bidding scripts and creative-rotation logic that auto-pause
-              underperformers and surface winning ads across Google &amp; Meta.
-            </p>
-            <div class="project-stack">
-              <span>Google Ads Scripts</span>
-              <span>Meta API</span>
-              <span>Google Sheets</span>
-              <span>Apps Script</span>
+      <section id="work">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="section-label">Case Studies</div>
+              <h2>Selected systems, launches, and growth work.</h2>
             </div>
-            <div class="project-results">
-              <div class="result-item">
-                <span class="result-num">4.2x</span>
-                <span class="result-label">Average ROAS</span>
-              </div>
+            <p class="section-copy">A focused look at AI-powered visibility, commerce performance, and B2B digital channel building across Vietnam's technology and business ecosystem.</p>
+          </div>
+
+          <div class="case-grid">
+            <article class="case-card reveal">
+              <div class="case-number">01 · Sphinx</div>
+              <h3>AI-Powered Growth Engine</h3>
+              <div class="case-tags"><span>GEO</span><span>Automation</span><span>SEO</span></div>
+              <p class="result">#1 Google ranking for "AI Agent Vietnam" · 20% brand awareness increase · 250+ leads</p>
+            </article>
+
+            <article class="case-card reveal">
+              <div class="case-number">02 · Tam Chau</div>
+              <h3>E-Commerce &amp; Performance Marketing</h3>
+              <div class="case-tags"><span>Facebook Ads</span><span>Shopee</span><span>Campaign Management</span></div>
+              <p class="result">Consistent monthly revenue growth via integrated paid + organic strategy</p>
+            </article>
+
+            <article class="case-card reveal">
+              <div class="case-number">03 · GS1 Vietnam</div>
+              <h3>B2B LinkedIn Launch</h3>
+              <div class="case-tags"><span>B2B Marketing</span><span>Technical Communication</span></div>
+              <p class="result">Launched first professional digital channel for government stakeholders</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="section-label">Skills</div>
+              <h2>A practical stack for AI-powered marketing execution.</h2>
+            </div>
+            <p class="section-copy">Strategy, automation, analytics, creative production, and performance marketing combined into one execution system.</p>
+          </div>
+
+          <div class="skills-grid">
+            <div class="skill-card reveal"><div class="skill-icon">AI</div><h3>AI &amp; Automation</h3><p>ChatGPT, Claude, Midjourney, Make.com, Prompt Engineering</p></div>
+            <div class="skill-card reveal"><div class="skill-icon">PM</div><h3>Performance Marketing</h3><p>Facebook Ads, Shopee Ads, Funnel Design, CRO</p></div>
+            <div class="skill-card reveal"><div class="skill-icon">GO</div><h3>SEO &amp; GEO</h3><p>Generative Engine Optimization, WordPress, Campaign Strategy</p></div>
+            <div class="skill-card reveal"><div class="skill-icon">DA</div><h3>Data &amp; Analytics</h3><p>SQL, Google Analytics, Looker Studio</p></div>
+            <div class="skill-card reveal"><div class="skill-icon">CR</div><h3>Creative</h3><p>Adobe Premiere, Photoshop, Canva, Short-form Video</p></div>
+            <div class="skill-card reveal"><div class="skill-icon">LN</div><h3>Languages</h3><p>Vietnamese Native · English Full Professional</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="section-label">Experience</div>
+              <h2>Timeline of brand, growth, and AI marketing work.</h2>
+            </div>
+            <p class="section-copy">Experience across AI technology, brand operations, international cooperation branding, and e-commerce campaign management.</p>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item reveal">
+              <div class="timeline-date">Sep 2025<br>Present</div>
+              <div class="timeline-content"><h3>Lead Content &amp; Marketing Specialist — Sphinx JSC</h3></div>
+            </div>
+            <div class="timeline-item reveal">
+              <div class="timeline-date">Dec 2024<br>Mar 2025</div>
+              <div class="timeline-content"><h3>Marketing &amp; Brand Operations — VADA</h3></div>
+            </div>
+            <div class="timeline-item reveal">
+              <div class="timeline-date">May 2024<br>Aug 2024</div>
+              <div class="timeline-content"><h3>International Cooperation Branding — GS1 Vietnam (STAMEQ)</h3></div>
+            </div>
+            <div class="timeline-item reveal">
+              <div class="timeline-date">May 2023<br>Nov 2024</div>
+              <div class="timeline-content"><h3>E-Commerce &amp; Campaign Manager — Tam Chau Boutique Tea</h3></div>
             </div>
           </div>
-        </div>
 
-      </div>
-    </div>
-  </section>
+          <div class="contact-strip reveal">
+            <div><strong>Email</strong> · <a href="mailto:nhkhanhlinh514@gmail.com">nhkhanhlinh514@gmail.com</a></div>
+            <div><strong>Phone</strong> · <a href="tel:+84983050104">(+84) 983 050 104</a></div>
+            <div><strong>Location</strong> · Hanoi, Vietnam</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 
-  <!-- Education & Certs -->
-  <section id="education">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">05 / Education</span>
-        <h2>Background &amp; Certifications</h2>
-      </div>
-      <div class="edu-grid">
-        <div class="edu-card">
-          <div class="edu-icon">&#127891;</div>
-          <div class="edu-info">
-            <h3>B.S. Marketing &amp; Communications</h3>
-            <p>University of California, Berkeley &middot; 2018</p>
-          </div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-icon">&#127942;</div>
-          <div class="edu-info">
-            <h3>Google Analytics 4 Certified</h3>
-            <p>Google &middot; 2024</p>
-          </div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-icon">&#127942;</div>
-          <div class="edu-info">
-            <h3>Meta Blueprint Certified</h3>
-            <p>Meta &middot; 2023</p>
-          </div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-icon">&#127942;</div>
-          <div class="edu-info">
-            <h3>HubSpot Marketing Certified</h3>
-            <p>HubSpot Academy &middot; 2022</p>
-          </div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-icon">&#127942;</div>
-          <div class="edu-info">
-            <h3>AI for Everyone</h3>
-            <p>DeepLearning.AI / Coursera &middot; 2023</p>
-          </div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-icon">&#127942;</div>
-          <div class="edu-info">
-            <h3>Growth Marketing Minidegree</h3>
-            <p>CXL Institute &middot; 2021</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
 
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">06 / Contact</span>
-        <h2>Let's Talk</h2>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-text">
-          <p>
-            Whether you're looking for a fractional CMO, a consultant on an AI marketing
-            initiative, or a full-time team member — I'd love to hear about your project.
-          </p>
-          <div class="contact-links">
-            <a href="mailto:maria@example.com" class="contact-link">
-              <span class="contact-link-icon">&#9993;</span>
-              maria@example.com
-            </a>
-            <a href="#" class="contact-link">
-              <span class="contact-link-icon">&#128279;</span>
-              linkedin.com/in/mariachia
-            </a>
-            <a href="#" class="contact-link">
-              <span class="contact-link-icon">&#128039;</span>
-              github.com/mariachia
-            </a>
-          </div>
-        </div>
-        <form class="contact-form" id="contactForm">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width:100%">Send Message</button>
-          <div class="form-success" id="formSuccess">Thanks! I'll get back to you within 24 hours.</div>
-        </form>
-      </div>
-    </div>
-  </section>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
 
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-inner">
-      <span class="footer-logo">Maria Chia</span>
-      <span class="footer-copy">&copy; 2026 &middot; Built with intention</span>
-      <div class="footer-links">
-        <a href="#hero">Top</a>
-        <a href="#projects">Work</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+    revealElements.forEach((element) => observer.observe(element));
+  </script>
 </body>
 </html>
