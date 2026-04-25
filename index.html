@@ -592,6 +592,191 @@
       transform: translateY(0);
     }
 
+    /* === CONTACT === */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contact-info-card,
+    .contact-form-card {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 28px;
+      padding: 34px;
+    }
+
+    .contact-info-card {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .contact-item-icon {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--blue-soft);
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      font-size: 18px;
+    }
+
+    .contact-item-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--blue);
+      margin-bottom: 4px;
+    }
+
+    .contact-item-value {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .contact-item-value a {
+      color: var(--white);
+      transition: color 0.2s ease;
+    }
+
+    .contact-item-value a:hover {
+      color: #78A6FF;
+    }
+
+    .contact-availability {
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      font-size: 14px;
+      color: #DCE8FF;
+      line-height: 1.65;
+    }
+
+    .contact-availability strong {
+      color: var(--white);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      background: rgba(248, 250, 252, 0.05);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 15px;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(184, 196, 217, 0.4);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: rgba(37, 99, 235, 0.55);
+      background: rgba(37, 99, 235, 0.06);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .form-submit {
+      margin-top: 6px;
+      width: 100%;
+    }
+
+    .form-success {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(37, 99, 235, 0.28);
+      color: #DCE8FF;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .form-success.show { display: block; }
+
+    /* === FOOTER === */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.04em;
+    }
+
+    .footer-logo span { color: var(--blue); }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-links a {
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
     @media (max-width: 920px) {
       .hero-grid, .about-grid, .section-head {
         grid-template-columns: 1fr;
@@ -599,6 +784,10 @@
 
       .case-grid, .skills-grid {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -646,6 +835,7 @@
           <a href="#work">Work</a>
           <a href="#skills">Skills</a>
           <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
         </div>
       </div>
     </nav>
@@ -804,7 +994,80 @@
           </div>
         </div>
       </section>
+      <section id="contact">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="section-label">Contact</div>
+              <h2>Let's build something together.</h2>
+            </div>
+            <p class="section-copy">Open to AI marketing consulting, fractional roles, and collaborative projects in Vietnam's tech ecosystem. Response within 24 hours.</p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-info-card reveal">
+              <div class="contact-item">
+                <div class="contact-item-icon">✉️</div>
+                <div>
+                  <div class="contact-item-label">Email</div>
+                  <div class="contact-item-value"><a href="mailto:nhkhanhlinh514@gmail.com">nhkhanhlinh514@gmail.com</a></div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item-icon">📱</div>
+                <div>
+                  <div class="contact-item-label">Phone</div>
+                  <div class="contact-item-value"><a href="tel:+84983050104">(+84) 983 050 104</a></div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item-icon">📍</div>
+                <div>
+                  <div class="contact-item-label">Location</div>
+                  <div class="contact-item-value">Hanoi, Vietnam</div>
+                </div>
+              </div>
+              <div class="contact-availability">
+                <strong>Currently available</strong>
+                Open to consulting engagements, AI marketing strategy projects, and full-time opportunities in Vietnam's tech sector.
+              </div>
+            </div>
+
+            <div class="contact-form-card reveal">
+              <form id="contactForm" novalidate>
+                <div class="form-group">
+                  <label class="form-label" for="fname">Name</label>
+                  <input class="form-input" type="text" id="fname" name="name" placeholder="Your name" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="femail">Email</label>
+                  <input class="form-input" type="email" id="femail" name="email" placeholder="your@email.com" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="fmessage">Message</label>
+                  <textarea class="form-textarea" id="fmessage" name="message" placeholder="Tell me about your project…" required></textarea>
+                </div>
+                <button class="btn btn-primary form-submit" type="submit">Send Message</button>
+                <div class="form-success" id="formSuccess">Message received — I'll get back to you within 24 hours.</div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <span class="footer-logo">Linh<span>.</span>AI</span>
+        <span class="footer-copy">© 2026 Ngo Hoang Khanh Linh · Hanoi, Vietnam</span>
+        <nav class="footer-links">
+          <a href="#hero">Top</a>
+          <a href="#work">Work</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </footer>
   </div>
 
   <script>
@@ -820,6 +1083,20 @@
     }, { threshold: 0.14 });
 
     revealElements.forEach((element) => observer.observe(element));
+
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      setTimeout(() => {
+        this.reset();
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+        document.getElementById('formSuccess').classList.add('show');
+      }, 1000);
+    });
   </script>
 </body>
 </html>
